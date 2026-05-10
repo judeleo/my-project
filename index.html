@@ -3235,7 +3235,7 @@ function sendToSheets(data) {
  if (!GOOGLE_SHEET_URL || GOOGLE_SHEET_URL === "PASTE_YOUR_APPS_SCRIPT_URL_HERE") return;
  fetch(GOOGLE_SHEET_URL, {
  method: "POST",
- headers: { "Content-Type": "application/json" },
+ headers: { "Content-Type": "text/plain" },
  body: JSON.stringify(data),
  mode: "no-cors"
  }).catch(function() {});
