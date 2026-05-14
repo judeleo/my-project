@@ -462,7 +462,7 @@ nav {
 
 /* ── SERVICES ── */
 #services { background: var(--cream); padding: 80px 250px; }
-.services-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; margin-top: 48px; }
+.services-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; margin-top: 48px; align-items: stretch; }
 .service-card {
  background: var(--white); border-radius: 14px; overflow: hidden;
  border: 1px solid var(--border); transition: box-shadow .2s;
@@ -1004,6 +1004,8 @@ footer {
  cursor: pointer; transition: background .2s;
  width: 100%;
  justify-content: center;
+
+ margin-top: auto;
 }
 .service-btn:hover { background: var(--navy3, #001535); }
 
@@ -1728,6 +1730,7 @@ footer {
  font-size: 13px; color: var(--ink, #1A1A16);
  line-height: 1.7; margin-bottom: 20px;
  font-weight: 500;
+ flex: 1;
 }
 
 
@@ -2076,7 +2079,8 @@ footer {
 <!-- ═══ NAV ═══ -->
 <nav>
   <div class="nav-logo">
-    <img src="https://res.cloudinary.com/dkxyhtuun/image/upload/v1778538454/Logo_white_3_lxfz8p.svg" alt="Dr. Joshua Oparachukwu" class="nav-logo-img">
+    <span class="name">Dr. Joshua <span>Oparachukwu</span></span>
+    <span class="sub">Performance Strategist · Applied Performance Science</span>
   </div>
   <div class="nav-links">
 
@@ -2111,6 +2115,10 @@ footer {
         <a class="nav-dropdown-item" onclick="openCS11();" href="#">Case 11: When a Football Program Had Activity but No Operating System</a>
         <a class="nav-dropdown-item" onclick="openCS12();" href="#">Case 12: When Authority Was Concentrated but Accountability Was Diffused</a>
         <a class="nav-dropdown-item" onclick="openCS13();" href="#">Case 13: When Policy Existed but Enforcement Had No Spine</a>
+        <div class="nav-dropdown-section-label">Executive / High-Pressure Performance</div>
+        <a class="nav-dropdown-item" onclick="openCS14();" href="#">Case 14: When Decision Speed Became Decision Fatigue</a>
+        <a class="nav-dropdown-item" onclick="openCS15();" href="#">Case 15: When Public Confidence Hid Private Overextension</a>
+        <a class="nav-dropdown-item" onclick="openCS16();" href="#">Case 16: When Urgency Became the Operating Culture</a>
       </div>
     </div>
 
@@ -2170,6 +2178,10 @@ footer {
       <a href="#" onclick="closeMobileNav();openCS11();">Case 11: Activity, No Operating System</a>
       <a href="#" onclick="closeMobileNav();openCS12();">Case 12: Authority Concentrated</a>
       <a href="#" onclick="closeMobileNav();openCS13();">Case 13: Policy Without Enforcement</a>
+      <div class="mobile-nav-sub-label">Executive / High-Pressure Performance</div>
+      <a href="#" onclick="closeMobileNav();openCS14();">Case 14: When Decision Speed Became Decision Fatigue</a>
+      <a href="#" onclick="closeMobileNav();openCS15();">Case 15: When Public Confidence Hid Private Overextension</a>
+      <a href="#" onclick="closeMobileNav();openCS16();">Case 16: When Urgency Became the Operating Culture</a>
     </div>
     <a href="#results" class="mobile-nav-item" onclick="closeMobileNav();smoothNav('results',event);">Results</a>
     <a href="#services" class="mobile-nav-item" onclick="closeMobileNav();smoothNav('services',event);">Services</a>
@@ -2275,7 +2287,7 @@ footer {
  <span class="result-quote-mark">"</span>
  <p class="result-after">My confidence used to be fragile. One missed chance and it was gone for the rest of the half. Working with Dr. Joshua Oparachukwu changed how I talk to myself after those moments. I'm more composed now, and it shows in how I keep pressing, keep making runs, even when things aren't going my way.</p>
  <div class="result-footer">
- <div class="result-avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Testimonial" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+ 
  <div>
  <div class="result-name">Chibuba Anozie</div>
  <div class="result-tag">Forward, Peridot FC</div>
@@ -2288,9 +2300,9 @@ footer {
  <span class="result-quote-mark">"</span>
  <p class="result-after">The biggest change for me is self-control on the pitch. I used to let frustration build with referees, with teammates, with myself and it affected my game. Now I manage that better. Dr. Joshua Oparachukwu helped me understand that composure is something you can actually train, not just something some players are born with.</p>
  <div class="result-footer">
- <div class="result-avatar"><img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100&q=80" alt="Testimonial" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+ 
  <div>
- <div class="result-name">Abass</div>
+ <div class="result-name">Abubakar Abass</div>
  <div class="result-tag">Forward, Peridot FC</div>
  </div>
  </div>
@@ -2301,7 +2313,7 @@ footer {
  <span class="result-quote-mark">"</span>
  <p class="result-after">Staying mentally engaged for a full match was something I struggled with, especially after a mistake. I'd physically be on the pitch but mentally somewhere else. That gap has closed. I stay present longer now and my performance levels in the second half of games have genuinely improved.</p>
  <div class="result-footer">
- <div class="result-avatar"><img src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=100&q=80" alt="Testimonial" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+ 
  <div>
  <div class="result-name">Alli Gbotemi</div>
  <div class="result-tag">Defender, Elite FC</div>
@@ -2318,7 +2330,7 @@ footer {
  <span class="result-quote-mark">"</span>
  <p class="result-after">Before working with Dr. Joshua Oparachukwu, I used to carry a bad touch or a missed chance in my head for the rest of the game. It would affect everything my positioning, my runs, even how I communicated with teammates. That's changed. I process mistakes faster now.</p>
  <div class="result-footer">
- <div class="result-avatar"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Testimonial" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+ 
  <div>
  <div class="result-name">Olowoyo Martins Eniola</div>
  <div class="result-tag">Forward, Peridot FC</div>
@@ -2329,11 +2341,11 @@ footer {
  <div class="result-card">
  <div class="result-card-body">
  <span class="result-quote-mark">"</span>
- <p class="result-after">What I noticed most was how quickly I could reset. Defending is a position where one mistake can cost a goal, so mentally you can't afford to dwell. Dr. Joshua Oparachukwu helped me develop a switch something I do in my head to move from what just happened to what's next.</p>
+ <p class="result-after">What I noticed most was how quickly I could reset. Defending is a position where one mistake can cost a goal, so mentally you can't afford to dwell. Dr. Joshua Oparachukwu helped me develop a switch. Something I do in my head to move from what just happened to what's next.</p>
  <div class="result-footer">
- <div class="result-avatar"><img src="https://images.unsplash.com/photo-1534308143481-c55f00be8bd7?w=100&q=80" alt="Testimonial" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+ 
  <div>
- <div class="result-name">Joseph</div>
+ <div class="result-name">Joseph Fatai</div>
  <div class="result-tag">Defender, Peridot FC</div>
  </div>
  </div>
@@ -2344,7 +2356,7 @@ footer {
  <span class="result-quote-mark">"</span>
  <p class="result-after">Decision-making under pressure was my biggest issue. I'd hesitate at the wrong moments or force things when I shouldn't. What changed for me was confidence not the fake kind you try to pump yourself up with, but something more solid. I trust my reads now.</p>
  <div class="result-footer">
- <div class="result-avatar"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&q=80" alt="Testimonial" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+ 
  <div>
  <div class="result-name">Ayodele Adebayo</div>
  <div class="result-tag">Forward, Peridot FC</div>
@@ -2361,7 +2373,7 @@ footer {
  <span class="result-quote-mark">"</span>
  <p class="result-after">I'll be honest I didn't know what to expect from this kind of work. But the sessions shifted something real. In tough games, the ones where the crowd is involved or the stakes are high, I used to tighten up. Now I notice it happening and I know what to do with it.</p>
  <div class="result-footer">
- <div class="result-avatar"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80" alt="Testimonial" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+ 
  <div>
  <div class="result-name">Ilori Johnson Oluwadamilare</div>
  <div class="result-tag">Forward, Elite FC</div>
@@ -2374,7 +2386,7 @@ footer {
  <span class="result-quote-mark">"</span>
  <p class="result-after">What I appreciated most is that the work wasn't about pretending mistakes don't happen. It was about what you do in the next five seconds after one does. Dr. Joshua Oparachukwu helped me shorten that window between error and recovery.</p>
  <div class="result-footer">
- <div class="result-avatar"><img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=100&q=80" alt="Testimonial" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+ 
  <div>
  <div class="result-name">Abdul-Bashir Quadri</div>
  <div class="result-tag">Forward, Elite FC</div>
@@ -2387,7 +2399,7 @@ footer {
  <span class="result-quote-mark">"</span>
  <p class="result-after">Positive self-talk sounded like something I'd roll my eyes at before we started working together. But Dr. Joshua Oparachukwu showed me how to use it in a way that actually works during competition. When I make an error now, I recover quicker.</p>
  <div class="result-footer">
- <div class="result-avatar"><img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?w=100&q=80" alt="Testimonial" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+ 
  <div>
  <div class="result-name">Adedeji Abdulroqeeb</div>
  <div class="result-tag">Defender, Peridot FC</div>
@@ -2461,7 +2473,7 @@ footer {
  </div>
  <div class="yt-grid" id="yt-grid"></div>
  <div style="text-align:center;margin-top:32px;">
- <a href="https://www.youtube.com/@dr.joshuaoparachukwu" target="_blank" rel="noopener" class="btn-yt-secondary">Explore Channel →</a>
+ <a href="https://www.youtube.com/@dr.joshuaoparachukwu" target="_blank" rel="noopener" class="btn-yt-secondary">View More →</a>
  </div>
 </section>
 
@@ -2558,7 +2570,7 @@ footer {
  <div class="pub-body">
  <h4>The effect of martial arts training on the performance of football skills among football players in University of Ibadan</h4>
  <p class="pub-authors" style="font-size:13px;color:var(--ink4,#9A9A90);margin-bottom:6px;">Oparachukwu, J. A., &amp; Fadoju, A. O. (2024)</p>
- <p class="pub-journal">The Journal of Positive Psychology and Counselling, Vol. 14, pp. 117 129</p>
+ <p class="pub-journal">The Journal of Positive Psychology and Counselling, Vol. 14, pp. 117–129</p>
  <p>Applied training intervention examining martial arts transfer effects on football skill performance.</p>
  <div class="pub-actions">
  <button class="pub-btn-secondary" onclick="openAbstract('abstract-2')">Abstract ▲</button>
@@ -2667,10 +2679,7 @@ footer {
 
  </div>
  </div>
- </div>
-
- <!-- 2. Coach Decision-Making Cases -->
- <div class="cs-acc-item">
+ </div><div class="cs-acc-item">
  <button class="cs-acc-header" onclick="toggleAccordion(this)">
  <span class="cs-acc-arrow">▼</span>
  <span class="cs-acc-title">Coach Decision-Making Cases</span>
@@ -2724,10 +2733,7 @@ footer {
 
  </div>
  </div>
- </div>
-
- <!-- 3. Team Performance and Culture Cases -->
- <div class="cs-acc-item">
+ </div><div class="cs-acc-item">
  <button class="cs-acc-header" onclick="toggleAccordion(this)">
  <span class="cs-acc-arrow">▼</span>
  <span class="cs-acc-title">Team Performance and Culture Cases</span>
@@ -2797,10 +2803,62 @@ footer {
 
  </div>
  </div>
+ </div><div class="cs-acc-item">
+ <button class="cs-acc-header" onclick="toggleAccordion(this)">
+ <span class="cs-acc-arrow">▼</span>
+ <span class="cs-acc-title">Sport Governance Strategy Cases</span>
+ </button>
+ <div class="cs-acc-body">
+ <div class="cs-case-list">
+
+ <div class="cs-case-card">
+ <div class="cs-case-top"></div>
+ <div class="cs-case-inner">
+ <div class="cs-case-label">Case 11</div>
+ <h4>When a Football Program Had Activity but No Operating System</h4>
+ <p class="cs-case-sub">Football Development Program · Grassroots to Semi-Elite · Governance &amp; Operational Strategy</p>
+ <p class="cs-case-desc">A sport program held together by goodwill and personal effort with no clear governance structure, duplicated responsibilities built a sustainable operating system through the 4P Program Governance Map.</p>
+ <div class="cs-case-tags">
+ <span class="cs-tag problem">No governance system</span>
+ <span class="cs-tag method">4P Governance Map</span>
+ </div>
+ <a href="#" class="cs-cta" onclick="openCS11();return false;">Read Full Case Study →</a>
+ </div>
  </div>
 
- <!-- 4. Executive / High-Pressure Performance Cases -->
- <div class="cs-acc-item">
+ <div class="cs-case-card">
+ <div class="cs-case-top"></div>
+ <div class="cs-case-inner">
+ <div class="cs-case-label">Case 12</div>
+ <h4>When Authority Was Concentrated but Accountability Was Diffused</h4>
+ <p class="cs-case-sub">Football Organization · Multi-Stakeholder Environment · Governance &amp; Decision Rights</p>
+ <p class="cs-case-desc">An organization with a strong central figure but unclear decision rights built a 4D Decision Rights Map to translate concentrated authority into a system others could reliably operate inside.</p>
+ <div class="cs-case-tags">
+ <span class="cs-tag problem">Unclear decision rights</span>
+ <span class="cs-tag method">4D Decision Rights Map</span>
+ </div>
+ <a href="#" class="cs-cta" onclick="openCS12();return false;">Read Full Case Study →</a>
+ </div>
+ </div>
+
+ <div class="cs-case-card">
+ <div class="cs-case-top"></div>
+ <div class="cs-case-inner">
+ <div class="cs-case-label">Case 13</div>
+ <h4>When Policy Existed but Enforcement Had No Spine</h4>
+ <p class="cs-case-sub">Football Organization · Academy &amp; Development Environment · Safeguarding, Discipline &amp; Enforcement</p>
+ <p class="cs-case-desc">An organization with policies that were not carrying authority in practice built the 4E Governance Enforcement Model to create fair, consistent, and institutionally backed enforcement.</p>
+ <div class="cs-case-tags">
+ <span class="cs-tag problem">Policy without enforcement</span>
+ <span class="cs-tag method">4E Enforcement Model</span>
+ </div>
+ <a href="#" class="cs-cta" onclick="openCS13();return false;">Read Full Case Study →</a>
+ </div>
+ </div>
+
+ </div>
+ </div>
+ </div><div class="cs-acc-item">
  <button class="cs-acc-header" onclick="toggleAccordion(this)">
  <span class="cs-acc-arrow">▼</span>
  <span class="cs-acc-title">Executive / High-Pressure Performance Cases</span>
@@ -2857,64 +2915,6 @@ footer {
  </div>
  </div>
 
- <!-- 5. Sport Governance Strategy Cases -->
- <div class="cs-acc-item">
- <button class="cs-acc-header" onclick="toggleAccordion(this)">
- <span class="cs-acc-arrow">▼</span>
- <span class="cs-acc-title">Sport Governance Strategy Cases</span>
- </button>
- <div class="cs-acc-body">
- <div class="cs-case-list">
-
- <div class="cs-case-card">
- <div class="cs-case-top"></div>
- <div class="cs-case-inner">
- <div class="cs-case-label">Case 11</div>
- <h4>When a Football Program Had Activity but No Operating System</h4>
- <p class="cs-case-sub">Football Development Program · Grassroots to Semi-Elite · Governance &amp; Operational Strategy</p>
- <p class="cs-case-desc">A sport program held together by goodwill and personal effort with no clear governance structure, duplicated responsibilities built a sustainable operating system through the 4P Program Governance Map.</p>
- <div class="cs-case-tags">
- <span class="cs-tag problem">No governance system</span>
- <span class="cs-tag method">4P Governance Map</span>
- </div>
- <a href="#" class="cs-cta" onclick="openCS11();return false;">Read Full Case Study →</a>
- </div>
- </div>
-
- <div class="cs-case-card">
- <div class="cs-case-top"></div>
- <div class="cs-case-inner">
- <div class="cs-case-label">Case 12</div>
- <h4>When Authority Was Concentrated but Accountability Was Diffused</h4>
- <p class="cs-case-sub">Football Organization · Multi-Stakeholder Environment · Governance &amp; Decision Rights</p>
- <p class="cs-case-desc">An organization with a strong central figure but unclear decision rights built a 4D Decision Rights Map to translate concentrated authority into a system others could reliably operate inside.</p>
- <div class="cs-case-tags">
- <span class="cs-tag problem">Unclear decision rights</span>
- <span class="cs-tag method">4D Decision Rights Map</span>
- </div>
- <a href="#" class="cs-cta" onclick="openCS12();return false;">Read Full Case Study →</a>
- </div>
- </div>
-
- <div class="cs-case-card">
- <div class="cs-case-top"></div>
- <div class="cs-case-inner">
- <div class="cs-case-label">Case 13</div>
- <h4>When Policy Existed but Enforcement Had No Spine</h4>
- <p class="cs-case-sub">Football Organization · Academy &amp; Development Environment · Safeguarding, Discipline &amp; Enforcement</p>
- <p class="cs-case-desc">An organization with policies that were not carrying authority in practice built the 4E Governance Enforcement Model to create fair, consistent, and institutionally backed enforcement.</p>
- <div class="cs-case-tags">
- <span class="cs-tag problem">Policy without enforcement</span>
- <span class="cs-tag method">4E Enforcement Model</span>
- </div>
- <a href="#" class="cs-cta" onclick="openCS13();return false;">Read Full Case Study →</a>
- </div>
- </div>
-
- </div>
- </div>
- </div>
-
 
  </div><!-- /cs-accordion -->
 </section>
@@ -2935,7 +2935,7 @@ footer {
  <p class="credentials">BSc Human Kinetics &nbsp;·&nbsp; MSc Sociology & Psychology of Sport &nbsp;·&nbsp; PhD Performance Psychology<br>University of Ibadan, Nigeria</p>
 
  <!-- TRUNCATED BIO -->
- <p class="about-bio-preview">Dr. Joshua A. Oparachukwu is a Performance Psychologist, Performance Strategist, and Sport Administration expert committed to helping athletes, teams, leaders, and every day high performers unlock sustainable excellence under pressure. Founder of MindGame Africa and SportLead Africa, his work spans sport, leadership, education, and business always at the intersection of psychology, human performance, and governance.</p>
+ <p class="about-bio-preview">Dr. Joshua A. Oparachukwu is a Performance Psychologist, Performance Strategist, and Sport Administration expert committed to helping athletes, teams, leaders, and everyday high performers unlock sustainable excellence under pressure. Founder of MindGame Africa and SportLead Africa, his work spans sport, leadership, education, and business always at the intersection of psychology, human performance, and governance.</p>
 
  <div class="about-tags">
  <span class="about-tag">MindGame Africa</span>
@@ -2975,7 +2975,7 @@ footer {
  </div>
 
  <div class="about-page-text">
- <p>Dr. Joshua A. Oparachukwu is a Performance Psychologist, Performance Strategist, and Sport Administration expert committed to helping athletes, teams, leaders, and every day high performers unlock sustainable excellence under pressure. He is the Founder of MindGame Africa, a sport and performance consulting practice focused on mental performance, psychological skills training, and applied performance solutions, and the Founder of SportLead Africa, a consulting platform dedicated to sport administration, governance, and policy development.</p>
+ <p>Dr. Joshua A. Oparachukwu is a Performance Psychologist, Performance Strategist, and Sport Administration expert committed to helping athletes, teams, leaders, and everyday high performers unlock sustainable excellence under pressure. He is the Founder of MindGame Africa, a sport and performance consulting practice focused on mental performance, psychological skills training, and applied performance solutions, and the Founder of SportLead Africa, a consulting platform dedicated to sport administration, governance, and policy development.</p>
 
  <p>Working at the intersection of human performance and performance systems, Dr. Oparachukwu brings a rare dual lens to his work. He not only helps individuals strengthen the mental skills required to perform consistently, but also understands the organizational structures, leadership environments, and governance systems that shape performance outcomes. This integrated perspective allows him to support both people and the systems they operate within.</p>
 
@@ -3024,7 +3024,7 @@ footer {
  <div class="service-audience">For teams, coaches, academies, and organisations</div>
  <h4>Team &amp; Organization Consultation</h4>
  <p class="service-hook">The talent is there. But the team isn't delivering as it should.</p>
- <p class="service-desc">Mistakes fracture the group. Pressure splinters the team. Confidence is never collective doubt always is. Players perform well in training but shrink in competition. The culture looks fine on the surface, but something is quietly wrong with it.</p>
+ <p class="service-desc">Mistakes fracture the group. Pressure splinters the team. Confidence is never collective. Doubt always is. Players perform well in training but shrink in competition. The culture looks fine on the surface, but something is quietly wrong with it.</p>
  <p class="service-cta-line">This consultation is where we identify what is disrupting performance across your environment and what kind of support would actually address it.</p>
  <div class="service-meta">30 min · $75</div>
  <button class="service-btn">Book a Team Consultation →</button>
@@ -3218,19 +3218,19 @@ footer {
 
  <!-- LEFT: Name + sub + social pills -->
  <div class="footer-left">
- <img src="https://res.cloudinary.com/dkxyhtuun/image/upload/v1778538454/Logo_white_3_lxfz8p.svg" alt="Dr. Joshua Oparachukwu" class="footer-logo-img">
+ <div class="footer-name">Dr. Joshua A. Oparachukwu</div>
       <div class="footer-sub">Performance Strategist · Applied Performance Scientist · MindGame Africa</div>
  <div class="footer-socials">
- <a href="https://shorturl.at/rjk1T" data-media="social.youtube" target="_blank" aria-label="YouTube">
+ <a href="https://www.youtube.com/@dr.joshuaoparachukwu" data-media="social.youtube" target="_blank" aria-label="YouTube">
  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
  </a>
- <a href="https://shorturl.at/Y6Wps" data-media="social.instagram" target="_blank" aria-label="Instagram">
+ <a href="https://www.instagram.com/thedrjoshuaoparachukwu" data-media="social.instagram" target="_blank" aria-label="Instagram">
  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
  </a>
- <a href="https://shorturl.at/6y9Kt" data-media="social.tiktok" target="_blank" aria-label="TikTok">
+ <a href="https://www.tiktok.com/@thedrjoshuaoparachukwu" data-media="social.tiktok" target="_blank" aria-label="TikTok">
  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
  </a>
- <a href="https://shorturl.at/bPIKA" data-media="social.facebook" target="_blank" aria-label="Facebook">
+ <a href="https://www.facebook.com/people/Dr-Joshua-Oparachukwu/61564682447955/" data-media="social.facebook" target="_blank" aria-label="Facebook">
  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
  </a>
  <a href="https://x.com/thedrjoshuaOp" data-media="social.twitter" target="_blank" aria-label="X / Twitter">
@@ -3251,8 +3251,8 @@ footer {
 
  <!-- RIGHT: Org links -->
  <div class="footer-orgs">
- <a href="#" id="link-mindgame" style="display:none;">MindGame Africa (link coming)</a>
- <a href="#" id="link-sportlead" style="display:none;">SportLead Africa (link coming)</a>
+ <a href="#" id="link-mindgame">MindGame Africa</a>
+ <a href="#" id="link-sportlead">SportLead Africa</a>
  <a href="https://x.com/thedrjoshuaOp" data-media="social.twitter" target="_blank">#AskDrJoshuaOparachukwu</a>
  </div>
 
@@ -3260,7 +3260,7 @@ footer {
 
  <!-- BOTTOM BAR -->
  <div class="footer-bottom">
- <span>© 2025 Dr. Joshua A. Oparachukwu. All rights reserved. &nbsp;·&nbsp; MindGame Africa · SportLead Africa · MySpeakTree LLC</span>
+ <span>© 2026 Dr. Joshua A. Oparachukwu. All rights reserved. &nbsp;·&nbsp; MindGame Africa · SportLead Africa · MySpeakTree LLC</span>
  </div>
 </footer>
 
@@ -3352,10 +3352,10 @@ const MEDIA = {
 
  /* ── SOCIAL LINKS ─────────────────────────────────────*/
  social: {
- youtube: "https://shorturl.at/rjk1T",
- instagram: "https://shorturl.at/Y6Wps",
- tiktok: "https://shorturl.at/6y9Kt",
- facebook: "https://shorturl.at/bPIKA",
+ youtube: "https://www.youtube.com/@dr.joshuaoparachukwu",
+ instagram: "https://www.instagram.com/thedrjoshuaoparachukwu",
+ tiktok: "https://www.tiktok.com/@thedrjoshuaoparachukwu",
+ facebook: "https://www.facebook.com/people/Dr-Joshua-Oparachukwu/61564682447955/",
  twitter: "https://x.com/thedrjoshuaOp",
  },
 
@@ -4107,7 +4107,7 @@ function closeCS16(){var p=document.getElementById("cs16-page");if(p){closeOverl
   <div class="bk-card-audience">For teams, coaches, academies, and organisations</div>
   <h3>Team &amp; Organization Consultation</h3>
   <p class="bk-card-hook">The talent is there. But the team isn't delivering as it should.</p>
-  <p class="bk-card-body">Mistakes fracture the group. Pressure splinters the team. Confidence is never collective. Players perform well in training but shrink in competition. The culture looks fine on the surface, but something is quietly wrong with it.</p>
+  <p class="bk-card-body">Mistakes fracture the group. Pressure splinters the team. Confidence is never collective. Doubt always is. Players perform well in training but shrink in competition. The culture looks fine on the surface, but something is quietly wrong with it.</p>
   <p class="bk-card-closer">This consultation is where we identify what is disrupting performance across your environment and what kind of support would actually address it.</p>
   <div class="bk-card-meta">30 min · $75</div>
   <span class="bk-card-cta">Select →</span>
