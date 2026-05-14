@@ -462,14 +462,20 @@ nav {
 
 /* ── SERVICES ── */
 #services { background: var(--cream); padding: 80px 250px; }
-.services-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; margin-top: 48px; align-items: stretch; }
+.services-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; margin-top: 48px; align-items: stretch; grid-auto-rows: 1fr; }
 .service-card {
  background: var(--white); border-radius: 14px; overflow: hidden;
  border: 1px solid var(--border); transition: box-shadow .2s;
+ display: flex; flex-direction: column;
 }
 .service-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.07); }
 .service-top { height: 4px; background: var(--gold); }
-.service-body { padding: 22px 24px; }
+.service-body {
+ padding: 22px 24px;
+ flex: 1;
+ display: flex;
+ flex-direction: column;
+}
 .service-num {
  font-family: var(--font-display); font-size: 32px; font-weight: 700;
  color: var(--gold); line-height: 1; margin-bottom: 10px;
