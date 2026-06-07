@@ -311,16 +311,18 @@ nav {
 }
 .vid-thumb img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.65); }
 .vid-play {
- position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+ position: absolute; bottom: 10px; right: 12px;
+ display: flex; align-items: center; justify-content: center;
 }
 .vid-play-btn {
- width: 48px; height: 48px; border-radius: 50%; background: var(--gold);
+ width: 28px; height: 28px; background: none;
  display: flex; align-items: center; justify-content: center;
- box-shadow: 0 0 0 10px rgba(200,168,48,.2); cursor: pointer;
- border: none; transition: transform .2s;
+ cursor: pointer; border: none; transition: opacity .2s;
+ opacity: 0.85;
 }
+.vid-play-btn:hover { opacity: 1; }
 .vid-play-btn:hover { transform: scale(1.1); }
-.vid-play-btn svg { width: 18px; fill: var(--navy); margin-left: 3px; }
+.vid-play-btn svg { width: 18px; fill: #fff; margin-left: 3px; }
 .vid-info { padding: 14px 16px; }
 .vid-info p { font-size: 12px; color: var(--ink4); }
 
@@ -2081,6 +2083,149 @@ footer {
   display: flex; align-items: center; gap: 12px;
 }
 
+
+/* ── RESULTS SLIDER MOBILE ── */
+@media (max-width: 768px) {
+  .results-slide {
+    min-width: calc(100% / 9 * 3) !important;
+  }
+  .result-card {
+    width: 100% !important;
+  }
+}
+
+
+/* ── MOBILE SLIDER: SCROLL SNAP ── */
+@media (max-width: 768px) {
+  .results-slider-track-wrap {
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .results-slider-track-wrap::-webkit-scrollbar { display: none; }
+  .results-slider-track {
+    transform: none !important;
+    width: max-content;
+    gap: 12px !important;
+  }
+  .results-slide {
+    scroll-snap-align: start;
+    min-width: calc(100vw - 60px) !important;
+  }
+  .result-card { width: 100% !important; }
+  #resPrev, #resNext { display: none !important; }
+  .results-slider-controls { display: none !important; }
+}
+
+
+/* ── HEAR FROM ATHLETES MOBILE ── */
+@media (max-width: 768px) {
+  .vid-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    margin-top: 24px !important;
+  }
+  .vid-card {
+    width: 100% !important;
+    border-radius: 12px !important;
+  }
+  .vid-thumb {
+    aspect-ratio: 16/9 !important;
+    height: auto !important;
+  }
+  .vid-thumb img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    filter: brightness(.7) !important;
+  }
+  .vid-info {
+    padding: 12px 14px !important;
+  }
+  .vid-info p {
+    font-size: 13px !important;
+    color: var(--ink, #1A1A16) !important;
+    font-weight: 600 !important;
+    margin: 0 !important;
+  }
+}
+
+
+/* ── ABOUT SECTION MOBILE ── */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    margin-top: 24px !important;
+  }
+  .about-img {
+    order: -1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .about-img img {
+    width: 100% !important;
+    height: 280px !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+    border-radius: 12px !important;
+  }
+  .about-content {
+    order: 1 !important;
+    text-align: left !important;
+  }
+  .about-content h2 { font-size: 26px !important; }
+}
+
+
+/* ── 3-PILLAR METHOD MOBILE ── */
+@media (max-width: 768px) {
+  .pillars-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .pillar {
+    text-align: left !important;
+  }
+  .pillar h3 {
+    text-align: left !important;
+  }
+  .pillar-rule {
+    margin: 0 auto 16px 0 !important;
+  }
+  .pillar p {
+    text-align: left !important;
+  }
+  .pillar-checks {
+    text-align: left !important;
+    display: block !important;
+  }
+  .pillar-checks li {
+    text-align: left !important;
+  }
+}
+
+
+/* ── FOOTER BOTTOM MOBILE ── */
+@media (max-width: 768px) {
+  .footer-bottom {
+    justify-content: flex-start !important;
+    text-align: left !important;
+    order: 99 !important;
+    margin-top: 8px !important;
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+  }
+  footer {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .footer-bottom {
+    order: 99 !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -2238,11 +2383,8 @@ footer {
  <div class="progress-bar"><div class="progress-fill"></div></div>
  <div style="height:40px"></div>
 
-  <!-- VIDEO FRAME -->
-  <div style="width:90%;max-width:860px;margin:24px auto 48px;border-radius:16px;overflow:hidden;border:2px solid var(--gold,#C8A830);box-shadow:0 0 60px rgba(200,168,48,.18);">
-    <div style="position:relative;padding-bottom:56.25%;height:0;">
-      <iframe src="https://www.youtube.com/embed/q3lX2p_Uy9I?rel=0" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;" referrerpolicy="strict-origin"></iframe>
-    </div>
+  <div style="width:90%;max-width:860px;margin:24px auto 48px;position:relative;padding-bottom:56.25%;height:0;">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Em8EKjdVwEI?si=pG-F16PPhJRHZsCR&amp;start=4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
   </div>
 </section>
 
@@ -2464,7 +2606,7 @@ footer {
       <img src="https://img.youtube.com/vi/eKPaeAAANoQ/hqdefault.jpg" alt="Players I Worked With" style="width:100%;height:100%;object-fit:cover;display:block;">
       <div class="vid-play">
         <button class="vid-play-btn" aria-label="Play" onclick="event.stopPropagation();window.open('https://youtu.be/eKPaeAAANoQ?si=utezowuIzVOG4Aob','_blank')">
-          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="#fff"><polygon points="5,3 19,12 5,21"/></svg>
         </button>
       </div>
     </div>
@@ -2476,7 +2618,7 @@ footer {
       <img src="https://img.youtube.com/vi/k7XdkthBevA/hqdefault.jpg" alt="Kazeem Korede Olarenwaju" style="width:100%;height:100%;object-fit:cover;display:block;">
       <div class="vid-play">
         <button class="vid-play-btn" aria-label="Play" onclick="event.stopPropagation();window.open('https://youtu.be/k7XdkthBevA?si=yWYsL6NcqvwscvfF','_blank')">
-          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="#fff"><polygon points="5,3 19,12 5,21"/></svg>
         </button>
       </div>
     </div>
@@ -2488,7 +2630,7 @@ footer {
       <img src="https://img.youtube.com/vi/4IZC0yx4iDw/hqdefault.jpg" alt="Adedeji Abdulroqeeb" style="width:100%;height:100%;object-fit:cover;display:block;">
       <div class="vid-play">
         <button class="vid-play-btn" aria-label="Play" onclick="event.stopPropagation();window.open('https://youtu.be/4IZC0yx4iDw?si=vcRgrw3dKoaNSES7','_blank')">
-          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="#fff"><polygon points="5,3 19,12 5,21"/></svg>
         </button>
       </div>
     </div>
@@ -2500,7 +2642,7 @@ footer {
       <img src="https://img.youtube.com/vi/nVHR7YZxRtg/hqdefault.jpg" alt="Coach Folorunsho Sahaad" style="width:100%;height:100%;object-fit:cover;display:block;">
       <div class="vid-play">
         <button class="vid-play-btn" aria-label="Play" onclick="event.stopPropagation();window.open('https://youtube.com/shorts/nVHR7YZxRtg?si=sJvHlaBz-SvceuT3','_blank')">
-          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="#fff"><polygon points="5,3 19,12 5,21"/></svg>
         </button>
       </div>
     </div>
@@ -2512,7 +2654,7 @@ footer {
       <img src="https://img.youtube.com/vi/iqa6t4J4i9I/hqdefault.jpg" alt="Belief Anozie" style="width:100%;height:100%;object-fit:cover;display:block;">
       <div class="vid-play">
         <button class="vid-play-btn" aria-label="Play" onclick="event.stopPropagation();window.open('https://youtube.com/shorts/iqa6t4J4i9I?si=rQk5ae70gb7QSvIE','_blank')">
-          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="#fff"><polygon points="5,3 19,12 5,21"/></svg>
         </button>
       </div>
     </div>
@@ -2524,7 +2666,7 @@ footer {
       <img src="https://img.youtube.com/vi/-a_ILn3XpSU/hqdefault.jpg" alt="Ayodele Adebayo" style="width:100%;height:100%;object-fit:cover;display:block;">
       <div class="vid-play">
         <button class="vid-play-btn" aria-label="Play" onclick="event.stopPropagation();window.open('https://youtube.com/shorts/-a_ILn3XpSU?si=AjIqYgEJbaZlLdz8','_blank')">
-          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="#fff"><polygon points="5,3 19,12 5,21"/></svg>
         </button>
       </div>
     </div>
@@ -3135,126 +3277,73 @@ footer {
  <h2 class="skeptical-title reveal">STILL SKEPTICAL?</h2>
  <div class="skeptical-rule"></div>
  <div class="skeptical-grid">
- <div class="skep-card reveal">
- <div class="skep-card-inner">
- <div class="skep-card-top">
- <div class="skep-cols">
- <div class="skep-before-col">
- <span class="skep-col-lbl before-lbl">BEFORE</span>
- <p class="skep-before-txt">Anxiety paralysed me before every game. I couldn't switch off.</p>
- </div>
- <div class="skep-divider-v"></div>
- <div class="skep-after-col">
- <span class="skep-col-lbl after-lbl">AFTER</span>
- <p class="skep-after-txt">I walk into every match with a clear head and a reset routine.</p>
- </div>
- </div>
- </div>
- <div class="skep-card-foot">
- <span class="skep-role">Midfielder · Ibadan League</span>
- </div>
- </div>
- </div>
- <div class="skep-card reveal" style="transition-delay:.1s">
- <div class="skep-card-inner">
- <div class="skep-card-top">
- <div class="skep-cols">
- <div class="skep-before-col">
- <span class="skep-col-lbl before-lbl">BEFORE</span>
- <p class="skep-before-txt">One mistake became five I spiralled every single time.</p>
- </div>
- <div class="skep-divider-v"></div>
- <div class="skep-after-col">
- <span class="skep-col-lbl after-lbl">AFTER</span>
- <p class="skep-after-txt">I reset in seconds now. One mistake stays as one mistake.</p>
- </div>
- </div>
- </div>
- <div class="skep-card-foot">
- <span class="skep-role">Forward · Elite Club, Age 23</span>
- </div>
- </div>
- </div>
- <div class="skep-card reveal" style="transition-delay:.2s">
- <div class="skep-card-inner">
- <div class="skep-card-top">
- <div class="skep-cols">
- <div class="skep-before-col">
- <span class="skep-col-lbl before-lbl">BEFORE</span>
- <p class="skep-before-txt">Boardroom pressure was completely breaking my focus and clarity.</p>
- </div>
- <div class="skep-divider-v"></div>
- <div class="skep-after-col">
- <span class="skep-col-lbl after-lbl">AFTER</span>
- <p class="skep-after-txt">I perform at my clearest when the stakes are highest.</p>
- </div>
- </div>
- </div>
- <div class="skep-card-foot">
- <span class="skep-role">CEO · Lagos</span>
- </div>
- </div>
- </div>
- <div class="skep-card reveal">
- <div class="skep-card-inner">
- <div class="skep-card-top">
- <div class="skep-cols">
- <div class="skep-before-col">
- <span class="skep-col-lbl before-lbl">BEFORE</span>
- <p class="skep-before-txt">My players had all the talent but zero mental framework.</p>
- </div>
- <div class="skep-divider-v"></div>
- <div class="skep-after-col">
- <span class="skep-col-lbl after-lbl">AFTER</span>
- <p class="skep-after-txt">The team's resilience under pressure changed completely.</p>
- </div>
- </div>
- </div>
- <div class="skep-card-foot">
- <span class="skep-role">Team Coach · Nigerian League</span>
- </div>
- </div>
- </div>
- <div class="skep-card reveal" style="transition-delay:.1s">
- <div class="skep-card-inner">
- <div class="skep-card-top">
- <div class="skep-cols">
- <div class="skep-before-col">
- <span class="skep-col-lbl before-lbl">BEFORE</span>
- <p class="skep-before-txt">Exam and sport pressure together were absolutely crushing me.</p>
- </div>
- <div class="skep-divider-v"></div>
- <div class="skep-after-col">
- <span class="skep-col-lbl after-lbl">AFTER</span>
- <p class="skep-after-txt">Tools that work in the classroom and on the field.</p>
- </div>
- </div>
- </div>
- <div class="skep-card-foot">
- <span class="skep-role">Student Athlete · University</span>
- </div>
- </div>
- </div>
- <div class="skep-card reveal" style="transition-delay:.2s">
- <div class="skep-card-inner">
- <div class="skep-card-top">
- <div class="skep-cols">
- <div class="skep-before-col">
- <span class="skep-col-lbl before-lbl">BEFORE</span>
- <p class="skep-before-txt">I avoided big moments I simply didn't trust myself at all.</p>
- </div>
- <div class="skep-divider-v"></div>
- <div class="skep-after-col">
- <span class="skep-col-lbl after-lbl">AFTER</span>
- <p class="skep-after-txt">I now seek pressure. That's when I perform best.</p>
- </div>
- </div>
- </div>
- <div class="skep-card-foot">
- <span class="skep-role">Defender · Professional Club</span>
- </div>
- </div>
- </div>
+
+  <div class="skep-card reveal">
+   <div class="skep-card-inner">
+    <div class="skep-card-top">
+     <div class="skep-cols">
+      <div class="skep-before-col">
+       <span class="skep-col-lbl before-lbl">BEFORE</span>
+       <p class="skep-before-txt">I used to be the kind of player who let one error snowball into three. It was frustrating because I knew I was better than that.</p>
+      </div>
+      <div class="skep-divider"></div>
+      <div class="skep-after-col">
+       <span class="skep-col-lbl after-lbl">AFTER</span>
+       <p class="skep-after-txt">Working with Dr. Joshua gave me something practical to use in the moment, not just theory. I stayed on the pitch mentally even when things went wrong physically.</p>
+      </div>
+     </div>
+    </div>
+    <div class="skep-card-foot">
+     <span class="skep-name-tag">Adesola Joshua Ayomide</span>
+     <span class="skep-role-tag">Defender, Elite FC</span>
+    </div>
+   </div>
+  </div>
+
+  <div class="skep-card reveal" style="transition-delay:.1s;">
+   <div class="skep-card-inner">
+    <div class="skep-card-top">
+     <div class="skep-cols">
+      <div class="skep-before-col">
+       <span class="skep-col-lbl before-lbl">BEFORE</span>
+       <p class="skep-before-txt">I was reacting out of panic or emotion. Not making the decisions I knew I was capable of, especially in tight moments.</p>
+      </div>
+      <div class="skep-divider"></div>
+      <div class="skep-after-col">
+       <span class="skep-col-lbl after-lbl">AFTER</span>
+       <p class="skep-after-txt">I think differently on the pitch now. I walk into games with a different kind of confidence. It's quieter but more solid.</p>
+      </div>
+     </div>
+    </div>
+    <div class="skep-card-foot">
+     <span class="skep-name-tag">Alarape Bashit</span>
+     <span class="skep-role-tag">Forward, Elite FC</span>
+    </div>
+   </div>
+  </div>
+
+  <div class="skep-card reveal" style="transition-delay:.2s;">
+   <div class="skep-card-inner">
+    <div class="skep-card-top">
+     <div class="skep-cols">
+      <div class="skep-before-col">
+       <span class="skep-col-lbl before-lbl">BEFORE</span>
+       <p class="skep-before-txt">Positive self-talk sounded like something I'd roll my eyes at. I didn't think it was something that could actually work in competition.</p>
+      </div>
+      <div class="skep-divider"></div>
+      <div class="skep-after-col">
+       <span class="skep-col-lbl after-lbl">AFTER</span>
+       <p class="skep-after-txt">When I make an error now, I recover quicker. I can feel the difference and so can my coaches. Dr. Joshua showed me how to use it in a way that actually works.</p>
+      </div>
+     </div>
+    </div>
+    <div class="skep-card-foot">
+     <span class="skep-name-tag">Adedeji Abdulroqeeb</span>
+     <span class="skep-role-tag">Defender, Peridot FC</span>
+    </div>
+   </div>
+  </div>
+
  </div>
 </section>
 
@@ -3660,21 +3749,32 @@ window.addEventListener('popstate', function() {
  var track = document.getElementById('resultsTrack');
  if(!track) return;
  var dots = document.querySelectorAll('.res-dot');
- var cur = 0, total = 3;
- function goTo(n){
- cur = (n + total) % total;
- track.style.transform = 'translateX(-' + (cur * 100) + '%)';
- dots.forEach(function(d,i){ d.classList.toggle('active', i===cur); });
+ var cur = 0;
+
+ function getTotal() {
+   return window.innerWidth <= 768 ? 9 : 3;
  }
+ function getPerSlide() {
+   return window.innerWidth <= 768 ? 1 : 3;
+ }
+
+ function goTo(n){
+   var total = getTotal();
+   cur = (n + total) % total;
+   var perSlide = getPerSlide();
+   var pct = cur * (100 / perSlide);
+   track.style.transform = 'translateX(-' + pct + '%)';
+   dots.forEach(function(d,i){ d.classList.toggle('active', i===cur); });
+ }
+
  var prev = document.getElementById('resPrev');
  var next = document.getElementById('resNext');
  if(prev) prev.addEventListener('click', function(){ goTo(cur-1); });
  if(next) next.addEventListener('click', function(){ goTo(cur+1); });
- dots.forEach(function(d){ d.addEventListener('click', function(){ goTo(parseInt(d.dataset.slide)); }); });
- var tx = 0;
- track.addEventListener('touchstart', function(e){ tx = e.touches[0].clientX; }, {passive:true});
- track.addEventListener('touchend', function(e){ var diff = tx - e.changedTouches[0].clientX; if(Math.abs(diff)>50) goTo(cur+(diff>0?1:-1)); });
-})();
+ dots.forEach(function(d,i){ d.addEventListener('click', function(){ goTo(i); }); });
+
+ window.addEventListener('resize', function(){ goTo(0); });
+})();;
 
 
 /* ── NAV DROPDOWN HELPERS ── */
@@ -3756,7 +3856,7 @@ function initMedia() {
  <div class="yt-card reveal" style="transition-delay:${i * 0.1}s">
  <div class="yt-thumb">
  <img src="${v.thumb}" alt="${v.title}" loading="lazy">
- <div class="yt-thumb-play"><span><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></span></div>
+ <div class="yt-thumb-play"><span><svg viewBox="0 0 24 24" width="22" height="22" fill="#fff"><polygon points="5,3 19,12 5,21"/></svg></span></div>
  </div>
  <div class="yt-card-body">
  <h4>${v.title}</h4>
